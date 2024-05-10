@@ -256,7 +256,7 @@ require('lazy').setup({
 
   -- Configure nvim & tmux pane navigation.
   {
-    'christoomey/nvim-tmux-navigation',
+    'alexghergh/nvim-tmux-navigation',
     config = function()
       require('nvim-tmux-navigation').setup {}
       vim.keymap.set('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', {})

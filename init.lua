@@ -91,12 +91,17 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+vim.o.termguicolors = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
+
+-- Disable swapfiles
+vim.opt.swapfile = false
 
 -- Make line numbers default
 vim.opt.number = true
@@ -156,7 +161,15 @@ vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open Ex' })
+
+-- Opens the explorer for files.
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open Netrw file explorer' })
+
+-- Configures tmux and neovim keymaps for pane navigation.
+vim.keymap.set('n', 'c-k', ':windcmd k<CR>')
+vim.keymap.set('n', 'c-j', ':windcmd j<CR>')
+vim.keymap.set('n', 'c-h', ':windcmd h<CR>')
+vim.keymap.set('n', 'c-l', ':windcmd l<CR>')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -240,6 +253,18 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
+  -- Configure nvim & tmux pane navigation.
+  {
+    'christoomey/nvim-tmux-navigation',
+    config = function()
+      require('nvim-tmux-navigation').setup {}
+      vim.keymap.set('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', {})
+      vim.keymap.set('n', '<C-j>', '<Cmd>NvimTmuxNavigateDown<CR>', {})
+      vim.keymap.set('n', '<C-k>', '<Cmd>NvimTmuxNavigateUp<CR>', {})
+      vim.keymap.set('n', '<C-l>', '<Cmd>NvimTmuxNavigateRight<CR>', {})
+    end,
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:

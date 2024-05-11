@@ -100,6 +100,12 @@ vim.o.termguicolors = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- 2 spaces for each indentation
+vim.opt.shiftwidth = 2
+-- insert 2 spaces for tab while editing
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+
 -- Disable swapfiles
 vim.opt.swapfile = false
 
@@ -119,6 +125,19 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
+-- For Windows machines, uses powershell to edit string and remove characters.
+vim.g.clipboard = {
+  name = 'WslClipboard',
+  copy = {
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
+  },
+  paste = {
+    ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
 
 -- Enable break indent
 vim.opt.breakindent = true

@@ -5,14 +5,16 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
-      }
+      -- lint.linters_by_ft = {
+      --   markdown = { 'markdownlint' },
+      -- }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
-      -- lint.linters_by_ft = lint.linters_by_ft or {}
-      -- lint.linters_by_ft['markdown'] = { 'markdownlint' }
+      lint.linters_by_ft = lint.linters_by_ft or {}
+      lint.linters_by_ft['markdown'] = { 'markdownlint' }
+      lint.linters_by_ft['javascript'] = { 'eslint_d' }
+      lint.linters_by_ft['typescript'] = { 'eslint_d' }
       --
       -- However, note that this will enable a set of default linters,
       -- which will cause errors unless these tools are available:
@@ -48,6 +50,8 @@ return {
         group = lint_augroup,
         callback = function()
           require('lint').try_lint()
+
+          require('lint').try_lint 'cspell'
         end,
       })
     end,

@@ -641,9 +641,12 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'cspell', -- Used to spell
         'stylua', -- Used to format Lua code
         'prettierd', -- Used to format javascript
-        'cspell', -- Used to spell
+        'eslint-lsp', -- Used for eslint javascript
+        'eslint_d', -- Used to lint javascript
+        'markdownlint', -- Used to lint markdown
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -694,10 +697,10 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { 'prettierd', 'prettier' } },
-        jacascriptreact = { { 'prettierd', 'prettier' } },
-        typescript = { { 'prettierd', 'prettier' } },
-        typescriptreact = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        typescript = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
       },
     },
   },

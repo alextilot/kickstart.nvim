@@ -631,6 +631,12 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'cspell', -- Linter for spelling spelling
+        'prettierd', -- Formatter for various languages
+        'markdownlint', -- Linter for markdown files
+        'jsonlint', -- Linter for json files
+        'eslint-lsp',
+        'eslint_d', -- Linter for javascript
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

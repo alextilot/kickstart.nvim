@@ -99,6 +99,9 @@ vim.o.termguicolors = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Disable swapfiles, files that are not saved but edited.
+vim.opt.swapfile = false
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.

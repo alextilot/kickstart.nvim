@@ -99,6 +99,9 @@ vim.o.termguicolors = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 -- Disable swapfiles, files that are not saved but edited.
 vim.opt.swapfile = false
 

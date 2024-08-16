@@ -102,6 +102,12 @@ vim.o.termguicolors = true
 -- Disable swapfiles, files that are not saved but edited.
 vim.opt.swapfile = false
 
+-- 2 spaces for each indentation
+vim.opt.shiftwidth = 2
+-- insert 2 spaces for tab while editing
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -150,7 +156,8 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'

@@ -47,7 +47,8 @@ return {
       lint.linters_by_ft['json'] = { 'jsonlint' }
       lint.linters_by_ft['javascript'] = { 'eslint_d' }
       lint.linters_by_ft['typescript'] = { 'eslint_d' }
-      lint.linters_by_ft['react'] = { 'eslint_d' }
+      lint.linters_by_ft['javascriptreact'] = { 'eslint_d' }
+      lint.linters_by_ft['typescriptreact'] = { 'eslint_d' }
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
@@ -63,6 +64,9 @@ return {
           end
         end,
       })
+      vim.keymap.set('n', '<leader>l', function()
+        lint.try_lint()
+      end, { desc = '[L]int buffer' })
     end,
   },
 }

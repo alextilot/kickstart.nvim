@@ -105,8 +105,6 @@ vim.opt.spell = true
 -- Disable swapfiles, files that are not saved but edited.
 vim.opt.swapfile = false
 
--- 2 spaces for each indentation
-vim.opt.shiftwidth = 2
 -- insert 2 spaces for tab while editing
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -158,8 +156,8 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
--- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -171,7 +169,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.opt.hlsearch = true
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

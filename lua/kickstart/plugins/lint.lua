@@ -49,6 +49,10 @@ return {
       lint.linters_by_ft['typescript'] = { 'eslint_d' }
       lint.linters_by_ft['javascriptreact'] = { 'eslint_d' }
       lint.linters_by_ft['typescriptreact'] = { 'eslint_d' }
+      lint.linters_by_ft['python'] = { 'pylint' }
+
+      lint.linters.pylint.cmd = 'python'
+      lint.linters.pylint.args = {'-m', 'pylint', '-f', 'json'}
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.

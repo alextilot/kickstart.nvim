@@ -700,6 +700,9 @@ require('lazy').setup({
         'jsonlint', -- Linter for json files
         'eslint-lsp',
         'eslint_d', -- Linter for javascript
+        'pylint', -- Linter for python
+        'isort', -- Import sorter for python
+        'black', -- Formatter for python
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -754,6 +757,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
+        python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
